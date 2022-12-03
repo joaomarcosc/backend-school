@@ -26,11 +26,14 @@ class School {
   @Column()
   country: string;
 
+  @Column()
+  brand: string;
+
   @CreateDateColumn()
   created_at: string
 
   @UpdateDateColumn()
-  update_at: string
+  updated_at: string
 }
 
 export default School
