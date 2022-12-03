@@ -1,5 +1,5 @@
 import 'reflect-metadata'
-import './database'
+import "./database"
 import dotenv from "dotenv"
 import { app } from "./configs"
 

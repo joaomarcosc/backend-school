@@ -1,21 +1,11 @@
+import { singleton } from "tsyringe";
 import { Repository } from "typeorm";
-import { AppDataSource } from "../../../../../../ormconfig";
+import { AppDataSource } from "../../../../../configs/ormconfig";
+import { ISchoolRepository } from "../../../repositories";
 import School from "../entities/School";
 
-interface ICreateSchoolDTO {
-  name: string
-  document: string
-  address: string
-  zipcode: string
-  city: string;
-  state: string
-  country: string;
-}
 
-interface ISchoolRepository {
-  create(data: ICreateSchoolDTO): Promise<School>
-}
-
+@singleton()
 class SchoolRepository implements ISchoolRepository {
   private ormRepository: Repository<School>
 

@@ -1,9 +1,9 @@
 import express from "express"
-import { authRouter } from "../routes";
+import routes from "../shared/routes"
 const app = express()
 
 app.use(express.json())
 
-app.use("/api", authRouter.router)
+app.use(routes)
 
 export default app;
