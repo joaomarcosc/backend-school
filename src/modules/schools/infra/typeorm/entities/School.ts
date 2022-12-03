@@ -1,20 +1,20 @@
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity('school')
-class School {
+export class School {
   @PrimaryGeneratedColumn('uuid')
   id: string
 
-  @Column({ length: 100 })
+  @Column()
   name: string
 
-  @Column({ length: 14 })
+  @Column()
   document: string
 
   @Column()
   address: string
 
-  @Column({ length: 9 })
+  @Column()
   zipcode: string
 
   @Column()

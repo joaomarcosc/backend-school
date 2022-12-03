@@ -4,6 +4,6 @@ import SchoolController from "../controllers/SchoolController";
 const schoolRouter = Router();
 const schoolController = new SchoolController();
 
-schoolRouter.post("/", schoolController.create);
+schoolRouter.get("/", schoolController.get);
 
 export default schoolRouter;
