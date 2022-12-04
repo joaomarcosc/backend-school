@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import SchoolClass from "../../../../school_class/infra/typeorm/entities/SchoolClass";
 
 @Entity('school')
 export class School {
@@ -28,6 +29,9 @@ export class School {
 
   @Column()
   brand: string;
+
+  @OneToMany(() => SchoolClass, (item) => item.id)
+  school_class: SchoolClass
 
   @CreateDateColumn()
   created_at: string

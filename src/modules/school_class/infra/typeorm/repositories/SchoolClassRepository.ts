@@ -20,6 +20,17 @@ class SchoolClassRepository implements ISchoolClassRepository {
 
     return school_class
   }
+
+
+  async get(): Promise<SchoolClass[]> {
+    const school_class = this.ormRepository.find({
+      relations: {
+        school: true
+      }
+    })
+
+    return school_class
+  }
 }
 
 export default SchoolClassRepository
