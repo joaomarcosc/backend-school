@@ -34,6 +34,7 @@ export class School {
 
   @UpdateDateColumn()
   updated_at: string
+
 }
 
 export default School

@@ -4,7 +4,6 @@ import { AppDataSource } from "../../../../../configs/ormconfig";
 import { ISchoolRepository } from "../../../repositories";
 import School from "../entities/School";
 
-
 @singleton()
 class SchoolRepository implements ISchoolRepository {
   private ormRepository: Repository<School>
