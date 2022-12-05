@@ -1,7 +1,6 @@
 import { inject, injectable } from "tsyringe";
 import SchoolClass from "../infra/typeorm/entities/SchoolClass";
 import { ISchoolClassRepository } from "../repositories";
-import { ICreateSchoolClass } from "../types/ICreateSchoolClass";
 
 @injectable()
 class GetAllSchoolClassService {
