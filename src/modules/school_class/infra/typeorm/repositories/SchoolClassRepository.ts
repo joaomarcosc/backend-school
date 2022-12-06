@@ -25,7 +25,8 @@ class SchoolClassRepository implements ISchoolClassRepository {
   async get(): Promise<SchoolClass[]> {
     const school_class = this.ormRepository.find({
       relations: {
-        school: true
+        school: true,
+        teacher: true,
       }
     })
 

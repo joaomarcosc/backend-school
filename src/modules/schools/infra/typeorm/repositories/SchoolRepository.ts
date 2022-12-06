@@ -22,14 +22,14 @@ class SchoolRepository implements ISchoolRepository {
   }
 
   async get(params: IGetSchoolParams): Promise<SchoolClass> {
-    const school_with_class = await this.ormRepository.find({
+    const school_with_class = await this.ormRepository.findOne({
       where: { id: params.id },
       relations: {
         school_class: true
       }
     })
 
-    return school_with_class[0].school_class
+    return school_with_class.school_class
   }
 }
 
