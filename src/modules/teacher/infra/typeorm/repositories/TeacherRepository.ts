@@ -4,6 +4,7 @@ import { AppDataSource } from "../../../../../configs/ormconfig";
 import { ITeacherRepository } from "../../../respositories";
 import { ICreateTeacher } from "../../../types/ICreateTeacher";
 import Teacher from "../entities/Teacher";
+
 @singleton()
 class TeacherRepository implements ITeacherRepository {
   private ormRepository: Repository<Teacher>

@@ -3,6 +3,8 @@ import SchoolRepository from "../../modules/schools/infra/typeorm/repositories/S
 import type { ISchoolRepository } from "../../modules/schools/repositories";
 import SchoolClassRepository from "../../modules/school_class/infra/typeorm/repositories/SchoolClassRepository";
 import { ISchoolClassRepository } from "../../modules/school_class/repositories";
+import StudentsRepository from "../../modules/students/infra/typeorm/repositories/StudentsRepository";
+import { IStudentsRepository } from "../../modules/students/repositories";
 import TeacherRepository from "../../modules/teacher/infra/typeorm/repositories/TeacherRepository";
 import { ITeacherRepository } from "../../modules/teacher/respositories";
 
@@ -19,4 +21,9 @@ container.registerSingleton<ISchoolClassRepository>(
 container.registerSingleton<ITeacherRepository>(
   'TeacherRepository',
   TeacherRepository
+)
+
+container.registerSingleton<IStudentsRepository>(
+  'StudentsRepository',
+  StudentsRepository
 )
