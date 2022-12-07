@@ -9,11 +9,14 @@ class Students {
   @Column()
   name: string
 
-  @Column({ type: "float" })
-  final_grade: number
+  @Column()
+  document: string
 
   @Column()
-  approved: boolean
+  registration_number: number
+
+  @Column()
+  module: number
 
   @Column()
   class_school_id: string

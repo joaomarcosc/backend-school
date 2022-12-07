@@ -19,12 +19,16 @@ export class CreateStudent1670375291046 implements MigrationInterface {
                         type: "varchar"
                     },
                     {
-                        name: "final_grade",
-                        type: "float"
+                        name: "document",
+                        type: "varchar"
                     },
                     {
-                        name: "approved",
-                        type: "boolean"
+                        name: "registration_number",
+                        type: "int"
+                    },
+                    {
+                        name: "module",
+                        type: "int"
                     },
                     {
                         name: "class_school_id",
