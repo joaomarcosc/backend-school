@@ -1,4 +1,6 @@
 import { container } from "tsyringe";
+import GradeRepository from "../../modules/grade/infra/typeorm/repositories/GradeRepository";
+import { IGradeRepository } from "../../modules/grade/repository";
 import SchoolRepository from "../../modules/schools/infra/typeorm/repositories/SchoolRepository";
 import type { ISchoolRepository } from "../../modules/schools/repositories";
 import SchoolClassRepository from "../../modules/school_class/infra/typeorm/repositories/SchoolClassRepository";
@@ -26,4 +28,9 @@ container.registerSingleton<ITeacherRepository>(
 container.registerSingleton<IStudentsRepository>(
   'StudentsRepository',
   StudentsRepository
+)
+
+container.registerSingleton<IGradeRepository>(
+  'GradeRepository',
+  GradeRepository
 )

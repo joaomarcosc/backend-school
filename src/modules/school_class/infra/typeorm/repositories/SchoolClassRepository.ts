@@ -27,6 +27,7 @@ class SchoolClassRepository implements ISchoolClassRepository {
       relations: {
         school: true,
         teacher: true,
+        students: true,
       }
     })
 

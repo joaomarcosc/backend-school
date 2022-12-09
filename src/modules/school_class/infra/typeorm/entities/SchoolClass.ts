@@ -1,5 +1,6 @@
-import { Column, Entity, JoinColumn, JoinTable, ManyToOne, OneToOne, PrimaryColumn } from "typeorm";
+import { Column, Entity, JoinColumn, JoinTable, ManyToOne, OneToMany, OneToOne, PrimaryColumn } from "typeorm";
 import School from "../../../../schools/infra/typeorm/entities/School";
+import Students from "../../../../students/infra/typeorm/entities/Students";
 import Teacher from "../../../../teacher/infra/typeorm/entities/Teacher";
 
 @Entity("school_class")
@@ -20,6 +21,10 @@ export class SchoolClass {
   @OneToOne(() => Teacher, (item) => item.class_school)
   @JoinTable()
   teacher: Teacher
+
+  @OneToMany(() => Students, (item) => item.school_class)
+  @JoinTable()
+  students: Students[]
 
   @Column()
   created_at: string

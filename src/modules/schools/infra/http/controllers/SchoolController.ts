@@ -24,6 +24,7 @@ export default class SchoolController {
     if (!school) {
       const createSchool = container.resolve(CreateSchoolService)
       const schoolResponse = await createSchool.execute(body)
+
       return response.json(schoolResponse)
     }
 

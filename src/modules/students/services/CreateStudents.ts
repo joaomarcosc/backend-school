@@ -10,9 +10,9 @@ class CreateStudentsServices {
   ) { }
 
   async execute(data: IRequestParams): Promise<Students> {
-    const teacher = await this.studentsRepository.create(data);
+    const students = await this.studentsRepository.create(data);
 
-    return teacher;
+    return students;
   }
 }
 

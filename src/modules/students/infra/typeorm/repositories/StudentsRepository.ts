@@ -20,6 +20,27 @@ class StudentsRepository implements IStudentsRepository {
 
     return students
   }
+
+  async list(id?: string): Promise<Students | Students[]> {
+    if (id) {
+      const students = await this.ormRepository.findOne({
+        where: { id },
+        relations: {
+          school_class: true,
+        }
+      })
+
+      return students
+    }
+    const students = await this.ormRepository.find({
+      relations: {
+        school_class: true,
+        grade: true
+      }
+    })
+
+    return students
+  }
 }
 
 export default StudentsRepository
