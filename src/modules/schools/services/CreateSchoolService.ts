@@ -1,4 +1,5 @@
 import { inject, injectable } from "tsyringe";
+import { QueryFailedError } from "typeorm";
 import School from "../infra/typeorm/entities/School";
 import { ISchoolRepository } from "../repositories";
 
@@ -19,8 +20,13 @@ export class CreateSchoolService {
   ) { }
 
   async execute(request: IRequest): Promise<School> {
-    const school = await this.schoolRepository.create(request);
+    try {
+      const school = await this.schoolRepository.create(request);
 
-    return school;
+      return school;
+    } catch(e) {
+      const error: QueryFailedError = e
+      return error as any
+    }
   }
 }

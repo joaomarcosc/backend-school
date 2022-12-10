@@ -1,4 +1,5 @@
 import { inject, injectable } from "tsyringe";
+import { QueryFailedError } from "typeorm";
 import Teacher from "../infra/typeorm/entities/Teacher";
 import { ITeacherRepository } from "../respositories";
 import { ICreateTeacher } from "../types/ICreateTeacher";
@@ -10,9 +11,14 @@ class CreateTeacher {
   ) { }
 
   async execute(request: ICreateTeacher): Promise<Teacher> {
-    const teacher = await this.schoolClassRepository.create(request);
+    try {
+      const teacher = await this.schoolClassRepository.create(request);
 
     return teacher;
+    } catch(e) {
+      const error: QueryFailedError = e
+      return error as any
+    }
   }
 }
 

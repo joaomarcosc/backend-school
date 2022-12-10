@@ -11,7 +11,11 @@ export default class StudentsController {
     const createStudents = container.resolve(CreateStudentsServices)
     const students = await createStudents.execute(body)
 
-    return response.json({ students })
+    if(students instanceof Students) {
+      return response.json(students)
+    }
+
+    return response.status(400).json(students)
   }
 
   public async get(request: Request, response: Response): Promise<Response> {

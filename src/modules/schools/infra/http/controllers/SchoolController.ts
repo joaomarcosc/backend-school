@@ -8,14 +8,14 @@ import School from "../../typeorm/entities/School";
 export default class SchoolController {
   public async post(_: Request, response: Response): Promise<Response> {
     const body = {
-      name: "teste",
-      document: "000000000",
-      address: "Rua tal, numero tal",
-      zipcode: "0000000",
+      name: "Escola Facs",
+      document: "00.000.000/0001-91",
+      address: "Avenida Luís Viana",
+      zipcode: "41720-200",
       city: "Salvador",
       state: "Bahia",
       country: "Brasil",
-      brand: "opa"
+      brand: "https://h2i.s3.sa-east-1.amazonaws.com/upload/images/150459202212076390d5cbefeaa.png"
     }
 
     const repo = AppDataSource.getRepository(School)

@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 import CreateGradeService from "../../../service/CreateGradeService";
+import Grade from "../../typeorm/entities/Grade";
 
 export default class GradeController {
   public async post(request: Request, response: Response): Promise<Response> {
@@ -14,6 +15,10 @@ export default class GradeController {
     const createGrade = container.resolve(CreateGradeService)
     const grade = await createGrade.execute({ ...body, final_grade, approved })
 
-    return response.json({ grade })
+    if(grade instanceof Grade) {
+      return response.json({ grade })
+
+    }
+    return response.status(400).json({grade})
   }
 }

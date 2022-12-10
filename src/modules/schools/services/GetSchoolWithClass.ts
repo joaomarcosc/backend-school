@@ -1,4 +1,5 @@
 import { inject, injectable } from "tsyringe";
+import { QueryFailedError } from "typeorm";
 import SchoolClass from "../../school_class/infra/typeorm/entities/SchoolClass";
 import { IGetSchoolParams, ISchoolRepository } from "../repositories";
 
@@ -9,8 +10,13 @@ export class GetSchoolWithClass {
   ) { }
 
   async execute(params: IGetSchoolParams): Promise<SchoolClass> {
-    const school = await this.schoolRepository.get(params);
+    try {
+      const school = await this.schoolRepository.get(params);
 
     return school;
+    } catch(e) {
+      const error: QueryFailedError = e
+      return error as any
+    }
   }
 }
