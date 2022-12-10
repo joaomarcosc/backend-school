@@ -2,8 +2,9 @@ import { Router } from "express";
 import TeacherController from "../controllers/TeacherController";
 
 const teacherRouter = Router();
-const schoolClassController = new TeacherController();
+const teacherController = new TeacherController();
 
-teacherRouter.post("/", schoolClassController.post);
+teacherRouter.post("/", teacherController.post);
+teacherRouter.get("/", teacherController.get);
 
 export default teacherRouter;
