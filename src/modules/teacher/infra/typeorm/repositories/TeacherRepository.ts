@@ -20,6 +20,26 @@ class TeacherRepository implements ITeacherRepository {
 
     return teacher
   }
+
+  async list(id?: string): Promise<Teacher | Teacher[]> {
+    if (id) {
+      const teacher = await this.ormRepository.findOne({
+        where: { id },
+        relations: {
+          class_school:  true
+        }
+      })
+
+      return teacher
+    }
+    const teacher = await this.ormRepository.find({
+      relations: {
+        class_school:  true
+      }
+    })
+
+    return teacher   
+  }
 }
 
 export default TeacherRepository
