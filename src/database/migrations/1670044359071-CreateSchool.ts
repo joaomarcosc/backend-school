@@ -4,6 +4,7 @@ export class CreateSchool1670044359071 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
+
         await queryRunner.createTable(
             new Table({
                 name: 'school',
@@ -44,7 +45,16 @@ export class CreateSchool1670044359071 implements MigrationInterface {
                         type: "varchar"
                     },
                     {
+                        name: "brand",
+                        type: "varchar",
+                    },
+                    {
                         name: 'created_at',
+                        type: 'timestamp',
+                        default: 'now()',
+                    },
+                    {
+                        name: 'updated_at',
                         type: 'timestamp',
                         default: 'now()',
                     },

@@ -1,7 +1,8 @@
 import 'reflect-metadata'
-import './database'
 import dotenv from "dotenv"
 import { app } from "./configs"
+import "./database"
+import "./shared/container"
 
 dotenv.config()
 
